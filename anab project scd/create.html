@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>emergency care system</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body onload="requestGeo()">
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="create.html">Sing in</a></li>
+                    <li><a href="store.html">Home Appointment</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </nav>
+            <h1 class="site-name site-name-large">Sign in as a doctor</h1>
+        </header>
+
+        <section class="content-section container">
+
+            <div>
+                <p style="font-size: 2.0em">
+                    "Doctor's Portal – Your Gateway to Rapid Response. As a dedicated medical professional, your expertise is vital in the realm of emergency care. Our exclusive Doctor's Portal offers you seamless access to critical information and real-time updates, empowering you to make swift and informed decisions when every moment counts. Through this secure platform, you can review patient histories, collaborate with fellow medical experts, and coordinate seamlessly with our emergency teams. Your commitment to saving lives finds its perfect ally in our advanced Doctor's Portal. Log in now to join the frontline of emergency medical care."
+                </p>
+            </div>
+
+            
+            <button id="newBtn" onclick="openRecepieForm()" class="btn btn-primary btn-large">NEW</button>
+            <button id="newBtn2" onclick="resetForm(); openRecepieForm();" class="btn btn-primary btn-large" style="display: none;">NEW</button>
+
+            <div id="divToChange" class="sub-section-header" style="visibility:hidden">Press "NEW" To Start Creating!</div>
+
+            <div id="cForm" style="display: none;">
+                <fieldset id="fieldset" class="content-section container" style="margin: 0 auto; width:600px;">
+                    <legend>Your info:</legend>
+                    <br>
+                    Name: <input class="cForm" type="text" style="margin-top: 15px;" onchange="manage(this)"><br><br>
+                    Father Name: <input class="cForm" type="text" onchange="manage(this)"><br><br>
+                  
+                    type of degree you have: <br>
+                  
+
+                    <select id="mult" multiple>
+                        <option>Generl Physican</option>
+                        <option>DBS</option>
+                        <option>DPT</option>
+                        <option>Pharma-D</option>
+                        <option>Cardiologist</option>
+                        <option>Uernologist</option>
+                        <option>Generakl Surgen</option>
+                        <option>Physologist</option>
+                        <option>Other</option>
+                    </select><br><br>
+                    
+                    Contract duration: <input class="cForm" type="number" min="1" max="1440" value=0 placeholder="0" onchange="manage(this)"><br><br>
+
+                    Years of service: <input type="range" min="1" max="16" value="1" class="slider" id="myRange">
+                    <span id="sliderVal" style="margin-left: 15px;"></span>
+                    <script>
+                        var slider = document.getElementById("myRange");
+                        var output = document.getElementById("sliderVal");
+                        output.innerHTML = slider.value;
+                        
+                        slider.oninput = function() {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+
+                    <br><br>
+                    Your general information about you(Achivement): 
+                    <br><textarea class="cForm" id="textRec" rows="5" cols="40" onchange="manage(this)"></textarea><br>
+    
+                    <button id="submitBtn" 
+
+                        type="submit" 
+                        class="btn btn-primary btn-large" 
+                        disabled 
+                        onclick="submitMsg(); changeDiv();">SUBMIT
+                    </button>
+                </fieldset>
+            </div>
+        </section>
+        
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="site-name">Share :</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <div display = "flex" align-items = "center">
+                                <label id="label">Facebook: </label> 
+                                <img  src="Images/Facebook.png">
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.twitter.com" target="_blank">
+                            <div display = "flex" align-items = "center">
+                                <label id="label">Twitter: </label>
+                                <img  src="Images/Twitter.png">
+                        </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">
+                            <div display = "flex" align-items = "center">
+                                <label id="label">YouTube: </label>
+                                <img  src="Images/YouTube.png">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
